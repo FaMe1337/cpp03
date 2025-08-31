@@ -15,15 +15,17 @@ class ClapTrap
 		void attack(const std::string& target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
-		void getValues() const;
-		void setValues(const ClapTrap& other);
+		int  getAtkDmg() const;
+		int  getHp() const;
+		void setHp(unsigned int amount);
+		void setDmg(int amount);
 
 
 	private:
 		std::string _name;
-		int			_hit_points = 10;
-		int			_energy_points = 10;
-		int			_attack_damage = 0;
+		int			_hp;
+		int			_ep;
+		int			_ad;
 
 };
 

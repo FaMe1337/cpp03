@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/02 23:15:18 by marvin            #+#    #+#             */
-/*   Updated: 2025/09/02 23:15:20 by marvin           ###   ########.fr       */
+/*   Created: 2025/09/02 23:15:08 by marvin            #+#    #+#             */
+/*   Updated: 2025/09/03 00:41:57 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ ClapTrap::ClapTrap(std::string name) : _name(name) , _hp(10), _ep(10), _ad(0)
 
 ClapTrap::ClapTrap(const ClapTrap& other)
 {
-	std::cout << "Copy constructor called\n";
+	std::cout << "ClapTrap Copy constructor called\n";
 	*this = other;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 {
-	std::cout << "Copy assigment operator called\n";
+	std::cout << "ClapTrap Copy assigment operator called\n";
 	if (this != &other)
 	{
 		_name = other._name;
@@ -38,7 +38,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Default destructor called\n";
+	std::cout << "ClapTrap destructor called\n";
 }
 
 void ClapTrap::setDmg(int amount)
@@ -58,6 +58,11 @@ int ClapTrap::getAtkDmg() const
 int ClapTrap::getHp() const
 {
 	return _hp;
+}
+
+int ClapTrap::getEp() const
+{
+	return _ep;
 }
 
 void ClapTrap::attack(const std::string& target)

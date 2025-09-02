@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/02 23:15:18 by marvin            #+#    #+#             */
-/*   Updated: 2025/09/02 23:15:20 by marvin           ###   ########.fr       */
+/*   Created: 2025/09/02 23:15:08 by marvin            #+#    #+#             */
+/*   Updated: 2025/09/03 00:36:01 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ ClapTrap::ClapTrap(std::string name) : _name(name) , _hp(10), _ep(10), _ad(0)
 
 ClapTrap::ClapTrap(const ClapTrap& other)
 {
-	std::cout << "Copy constructor called\n";
+	std::cout << "ClapTrap Copy constructor called\n";
 	*this = other;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 {
-	std::cout << "Copy assigment operator called\n";
+	std::cout << "ClapTrap Copy assigment operator called\n";
 	if (this != &other)
 	{
 		_name = other._name;
@@ -38,7 +38,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other)
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Default destructor called\n";
+	std::cout << "ClapTrap destructor called\n";
 }
 
 void ClapTrap::setDmg(int amount)
@@ -60,39 +60,44 @@ int ClapTrap::getHp() const
 	return _hp;
 }
 
+int ClapTrap::getEp() const
+{
+	return _ep;
+}
+
 void ClapTrap::attack(const std::string& target)
 {
 	if (_hp < 1)
 	{
-		std::cout << "ClapTrap " << _name << " is already dead!\n";
+		std::cout << "Robot " << _name << " is already dead!\n";
 		return ;
 	}
 	if (_ep < 1)
 	{
-		std::cout << "ClapTrap " << _name << " has no energy and can't attack!\n";
+		std::cout << "Robot " << _name << " has no energy and can't attack!\n";
 		return ;
 	}
 	--_ep;
-	std::cout << "ClapTrap " << _name << " attacks " << target \
+	std::cout << "Robot " << _name << " attacks " << target \
 		<< " causing " <<  getAtkDmg() << " points of damage!" << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	std::cout << "ClapTrap " << _name << " took damage of " << amount << " points\n";
+	std::cout << "Robot " << _name << " took damage of " << amount << " points\n";
 	setDmg(amount);
 	if (_hp < 1)
-		std::cout << "ClapTrap " << _name << " lost all of his Hit Points and got destroyed!!!\n";
+		std::cout << "Robot " << _name << " lost all of his Hit Points and got destroyed!!!\n";
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
 	if (_ep <= 0)
 	{
-		std::cout << "ClapTrap " << _name << " has no energy and can't repair!\n";
+		std::cout << "Robot " << _name << " has no energy and can't repair!\n";
 		return ;
 	}
 	--_ep;
-	std::cout << "ClapTrap " << _name << " got repaired for " << amount << " points\n";
+	std::cout << "Robot " << _name << " got repaired for " << amount << " points\n";
 	setHp(amount);
 }

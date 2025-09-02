@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/02 23:15:12 by marvin            #+#    #+#             */
-/*   Updated: 2025/09/03 00:15:15 by marvin           ###   ########.fr       */
+/*   Created: 2025/09/02 23:15:00 by marvin            #+#    #+#             */
+/*   Updated: 2025/09/03 00:22:01 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class ClapTrap 
 {
 	public:
-		ClapTrap(std::string name);  // default constructor
+		ClapTrap(std::string name);  // constructor
 		ClapTrap(const ClapTrap& other); // Copy constructor
 		ClapTrap& operator=(const ClapTrap& other);  //Copy assigment operator
 		~ClapTrap();  // destructor
@@ -27,8 +27,9 @@ class ClapTrap
 		void beRepaired(unsigned int amount);
 		int  getAtkDmg() const;
 		int  getHp() const;
+		int  getEp() const;
 
-	private:
+	protected:
 		std::string _name;
 		int			_hp;
 		int			_ep;
